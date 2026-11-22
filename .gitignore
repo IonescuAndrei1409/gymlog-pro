@@ -1,0 +1,12 @@
+# Se publică DOAR aplicația web. Restul (PDF-uri, notițe din sală, prezentarea,
+# capturile și node_modules) rămâne doar pe laptop.
+/*
+!/.gitignore
+!/.nojekyll
+!/index.html
+!/sw.js
+!/manifest.webmanifest
+!/css/
+!/js/
+!/icons/
+!/README.md
