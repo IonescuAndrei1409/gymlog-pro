@@ -11,7 +11,7 @@
  *
  * La o versiune nouă a aplicației, crește VERSION ca telefoanele să o preia.
  * ===================================================================== */
-const VERSION = 'gymlog-v1';
+const VERSION = 'gymlog-v2';
 const FONTS = 'gymlog-fonts';
 
 const APP_SHELL = [
@@ -30,6 +30,7 @@ const APP_SHELL = [
   './icons/icon-512.png',
   './icons/icon-maskable-512.png',
   './icons/apple-touch-icon.png',
+  './icons/qr.png',
 ];
 
 /* Aceleași versiuni ca în index.html → servim copia locală, fără rețea. */

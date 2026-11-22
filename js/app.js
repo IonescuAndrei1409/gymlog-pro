@@ -1292,11 +1292,19 @@
     },
   };
 
+  const PUBLIC_URL = 'https://ionescuandrei1409.github.io/gymlog-pro/';
+
   function pwaCardHTML() {
     const ok = (t) => `<div class="flex items-center gap-2 text-sm">${icon('check', 16, 't-up')}<span>${t}</span></div>`;
+    // Cod QR către link-ul public: vizibil pe ecrane mari, ca să-l scanezi cu telefonul.
+    const qr = PWA.installed ? '' : `<div class="hidden sm:flex items-center gap-4 mt-4 stat-box">
+        <img src="icons/qr.png" alt="Cod QR către ${PUBLIC_URL}" width="112" height="112" style="border-radius:10px;flex-shrink:0">
+        <div class="min-w-0"><div class="font-bold text-sm">Scanează cu camera telefonului</div>
+          <div class="text-sm muted mt-1">sau deschide <a href="${PUBLIC_URL}" target="_blank" rel="noopener" style="color:var(--brand)">${PUBLIC_URL.replace('https://', '')}</a>, apoi instalează aplicația.</div></div>
+      </div>`;
     let body;
     if (PWA.fromFile) {
-      body = `<div class="info-box mt-0">Acum aplicația e deschisă <b>din fișier</b> (dublu-click). Ca s-o instalezi pe telefon, deschide-o o dată de pe <b>link-ul https</b> al site-ului (de exemplu GitHub Pages — pașii sunt în README.md), apoi revino aici.</div>`;
+      body = `<div class="info-box mt-0">Acum aplicația e deschisă <b>din fișier</b> (dublu-click). Pe telefon o deschizi de pe link-ul public <b>${PUBLIC_URL.replace('https://', '')}</b> și o instalezi de acolo.</div>${qr}`;
     } else {
       const rows = [];
       if (PWA.installed) rows.push(ok('Instalată — rulează ca aplicație, pe tot ecranul'));
@@ -1308,7 +1316,7 @@
         else if (PWA.isIOS) how = '<div class="info-box">Pe iPhone: în <b>Safari</b> apasă <b>Partajează</b> → <b>Adaugă pe ecranul principal</b>.</div>';
         else how = '<div class="info-box">În Chrome: meniul <b>⋮</b> → <b>Instalează aplicația</b> (sau <b>Adaugă pe ecranul de pornire</b>).</div>';
       }
-      body = `<div class="flex flex-col gap-2">${rows.join('')}</div>${how}`;
+      body = `<div class="flex flex-col gap-2">${rows.join('')}</div>${how}${qr}`;
     }
     return `<div class="card" id="pwa-card">
       <div class="card-head"><div><h2 class="card-title">${icon('phone', 18)} Aplicație pe telefon</h2><p class="card-sub">Se instalează cu iconiță proprie și merge fără internet</p></div></div>

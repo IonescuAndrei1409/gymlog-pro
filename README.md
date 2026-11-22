@@ -5,6 +5,10 @@ Proiect pentru disciplina **Tehnologii de Programare în Internet (TPI)** — te
 
 > Stack: **HTML5 + Tailwind CSS (CDN) + Chart.js (CDN) + Vanilla JavaScript modular**. Fără framework, fără server, fără build.
 
+**Aplicația online:** <https://ionescuandrei1409.github.io/gymlog-pro/> — deschide link-ul pe telefon și instalează aplicația. După instalare merge și fără internet.
+
+<img src="icons/qr.png" alt="Cod QR către aplicația online" width="160">
+
 ---
 
 ## Cum rulezi aplicația
